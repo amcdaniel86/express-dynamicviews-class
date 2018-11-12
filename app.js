@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
+var hbs = require('hbs');
 
 
+
+hbs.registerPartials(__dirname + '/views/partials');
 
 
 
@@ -47,7 +50,27 @@ app.get('/animals', (req, res, next) =>{
 })
 
 
+app.get('/cars', (req, res, next) => {
+  let data = {}
+  let blah = [
+        {make: "BMW", model: "X3", hp: "300+", gasMileage: "not great"}
+        {make: "Mercedes", model: "E Class", hp: "250+", gasMileage: "not great"}
+        {make: "Nissan", model: "Leaf", hp: "not much", gasMileage: "a/a"}
+        {make: "Acura", model: "TL", hp: "300+", gasMileage: "decent"}
+        {make: "Jeep", model: "Wrangler", hp: "240", gasMileage: "horrific"}
+        {make: "Cadillac", model: "Escalade", hp: "400+", gasMileage: "gallons per mile"}
+        {make: "Honda", model: "Civic", hp: "110", gasMileage: "37"}
 
+  ]
+
+
+
+        data.cars = blah
+
+        res.render('cars', data)
+
+        
+})
 
 
 
