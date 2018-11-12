@@ -16,15 +16,18 @@ app.set('view engine', 'hbs');
 
 
 
-asdfasdfasdf
 
 // res.render for all of our apps. google this term. use res.render as long as ('blah') has a .hbs file. i.e. blah.hbs, random_name.hbs
 app.get('/', (req, res, next) => {
   
   let data = {name: "bob", secretWord: "neptune"}
-  // database style let data = db.animals.find
-  cd c:/users/'light stuff'/desktop/'ironhack coding'/
+  // database style let data = db.animals.find() - tomorrow
+
+  if(data.secretWord === 'neptune'){
+    data.isSecret = true
+  }
   
+  // views should have as little logic as possible. They should ONLY show what was chosen out of the logic tree.
   
   res.render('blah', {name: "bob", secretWord: "neptune"});
 });
@@ -35,7 +38,13 @@ app.get('/', (req, res, next) => {
 // 2nd arg is an object - 
 // ALWAYS LIKE ABOVE 
 
+app.get('/animals', (req, res, next) =>{
 
+    let data = {list: ['dog', 'cat', 't-rex', 'crocodile', 'pangolin', 'scallop', 'crow']}
+
+
+    res.render('animals', data)
+})
 
 
 

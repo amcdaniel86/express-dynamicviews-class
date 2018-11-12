@@ -12,6 +12,17 @@
 
 <h2>name is equal to {{name}}</h2>
 
+{{#if isSecret}}
+
+<div>look this div shows up because we have secret owrd</div>
+
+{{else}}
+
+<div>this div is here because we have the wrong word</div>
+
+{{/if}}
+
+
 <h3>whats the passcode? {{secretWord}}</h3>
 
     <script src="app.js">
